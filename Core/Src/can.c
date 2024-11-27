@@ -58,7 +58,7 @@ void MX_CAN1_Init(void)
 	  /* CAN filter configuration */
 	        CAN_FilterTypeDef canFilterConfig0;
 	        canFilterConfig0.FilterActivation = ENABLE;//отключил - второй заработал
-	        canFilterConfig0.SlaveStartFilterBank = 0;  // Use bank 0
+
 	        canFilterConfig0.FilterBank = 0;  // Use bank 0
 	        canFilterConfig0.FilterFIFOAssignment = CAN_FILTER_FIFO0;
 	        canFilterConfig0.FilterIdHigh = 0x0000;
@@ -141,34 +141,21 @@ void MX_CAN2_Init(void)
   /* USER CODE BEGIN CAN2_Init 2 */
   /* CAN filter configuration for CAN2 */
 
-   CAN_FilterTypeDef canFilterConfig1;
-           canFilterConfig1.FilterActivation = ENABLE;
-           canFilterConfig1.SlaveStartFilterBank = 1;  // Use bank 1
-           canFilterConfig1.FilterBank = 1;  // Use bank 1
-           canFilterConfig1.FilterFIFOAssignment = CAN_FILTER_FIFO1;
-           canFilterConfig1.FilterIdHigh = 0x0000;
-           canFilterConfig1.FilterIdLow = 0x0000;
-           canFilterConfig1.FilterMaskIdHigh = 0x0000;
-           canFilterConfig1.FilterMaskIdLow = 0x0000;
-           canFilterConfig1.FilterMode = CAN_FILTERMODE_IDMASK;
-           canFilterConfig1.FilterScale = CAN_FILTERSCALE_32BIT;
-           if (HAL_CAN_ConfigFilter(&hcan2, &canFilterConfig1) != HAL_OK)
-       {
-           // Filter configuration Error
-           Error_Handler();
-       }
+
+
            /* CAN filter configuration for CAN2 */
-               CAN_FilterTypeDef canFilterConfig;
-               canFilterConfig.FilterActivation = ENABLE;
-               canFilterConfig.FilterBank = 1; // Use a different bank for CAN2
-               canFilterConfig.FilterFIFOAssignment = CAN_FILTER_FIFO1;
-               canFilterConfig.FilterIdHigh = 0x0000;
-               canFilterConfig.FilterIdLow = 0x0000;
-               canFilterConfig.FilterMaskIdHigh = 0x0000;
-               canFilterConfig.FilterMaskIdLow = 0x0000;
-               canFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
-               canFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-               if (HAL_CAN_ConfigFilter(&hcan2, &canFilterConfig) != HAL_OK)
+               CAN_FilterTypeDef canFilterConfig2;
+               canFilterConfig2.FilterActivation = ENABLE;
+               canFilterConfig2.SlaveStartFilterBank = 14;  // Use bank 0
+               canFilterConfig2.FilterBank = 14; // Use a different bank for CAN2
+               canFilterConfig2.FilterFIFOAssignment = CAN_FILTER_FIFO1;
+               canFilterConfig2.FilterIdHigh = 0x0000;
+               canFilterConfig2.FilterIdLow = 0x0000;
+               canFilterConfig2.FilterMaskIdHigh = 0x0000;
+               canFilterConfig2.FilterMaskIdLow = 0x0000;
+               canFilterConfig2.FilterMode = CAN_FILTERMODE_IDMASK;
+               canFilterConfig2.FilterScale = CAN_FILTERSCALE_32BIT;
+               if (HAL_CAN_ConfigFilter(&hcan2, &canFilterConfig2) != HAL_OK)
                {
                    // Filter configuration Error
                    Error_Handler();
