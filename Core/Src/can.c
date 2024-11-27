@@ -157,22 +157,7 @@ void MX_CAN2_Init(void)
            // Filter configuration Error
            Error_Handler();
        }
-           /* CAN filter configuration for CAN2 */
-               CAN_FilterTypeDef canFilterConfig;
-               canFilterConfig.FilterActivation = ENABLE;
-               canFilterConfig.FilterBank = 1; // Use a different bank for CAN2
-               canFilterConfig.FilterFIFOAssignment = CAN_FILTER_FIFO1;
-               canFilterConfig.FilterIdHigh = 0x0000;
-               canFilterConfig.FilterIdLow = 0x0000;
-               canFilterConfig.FilterMaskIdHigh = 0x0000;
-               canFilterConfig.FilterMaskIdLow = 0x0000;
-               canFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
-               canFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-               if (HAL_CAN_ConfigFilter(&hcan2, &canFilterConfig) != HAL_OK)
-               {
-                   // Filter configuration Error
-                   Error_Handler();
-               }
+
 
                /* Start the CAN peripheral */
                if (HAL_CAN_Start(&hcan2) != HAL_OK)
