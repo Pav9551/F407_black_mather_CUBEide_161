@@ -57,7 +57,7 @@ void MX_CAN1_Init(void)
   /* USER CODE BEGIN CAN1_Init 2 */
 	  /* CAN filter configuration */
 	        CAN_FilterTypeDef canFilterConfig0;
-	        canFilterConfig0.FilterActivation = ENABLE;//отключил - второй заработал
+	        canFilterConfig0.FilterActivation = !ENABLE;//отключил - второй заработал
 	        canFilterConfig0.SlaveStartFilterBank = 0;  // Use bank 0
 	        canFilterConfig0.FilterBank = 0;  // Use bank 0
 	        canFilterConfig0.FilterFIFOAssignment = CAN_FILTER_FIFO0;
