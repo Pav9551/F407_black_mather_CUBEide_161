@@ -95,6 +95,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
+  MX_CAN1_Init();
   MX_CAN2_Init();
   MX_RTC_Init();
   MX_SDIO_SD_Init();
@@ -103,7 +104,6 @@ int main(void)
   MX_FATFS_Init();
   MX_CRC_Init();
   MX_SPI2_Init();
-  MX_CAN1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
